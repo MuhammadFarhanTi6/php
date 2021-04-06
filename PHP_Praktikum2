@@ -1,0 +1,87 @@
+<?php
+$nama = $_POST["nama"];
+$matkul = $_POST["matkul"];
+$uts = $_POST["uts"];
+$uas = $_POST["uas"];
+$tugas = $_POST["tugas"];
+$proses = $_POST["proses"];
+
+if (isset($proses)) { 
+	echo "Nama Lengkap " . $nama . "<br/>";
+	echo "Mata Kuliah " . $matkul . "<br/>";
+	echo "Nilai_UTS " . $uts . "<br/>";
+	echo "Nilai_UAS " . $uas . "<br/>";
+	echo "Nilai Tugas " . $tugas;
+}
+// $_uts = $uts * 30/100;
+// $_uas = $uas * 35/100;
+// $_tugas = $tugas * 35/100;
+// $total = $_uts + $_uas + $_tugas;
+
+$_uts = $uts * 30/100;
+$_uas = $uas * 35/100;
+$_tugas = $tugas * 35/100;
+$nilai = $_uts + $_uas + $_tugas;
+
+$kelulusan = kelulusan($nilai);
+$grade = kelas($nilai);
+$predikat = predikat($grade);
+
+function kelulusan($nilai)
+{
+ if ($nilai > 55) {
+     $status    = "<br /> LULUS";
+    } else{
+     $status    = "<br />TIDAK LULUS";
+ }
+ return $status;
+}
+echo $kelulusan;
+echo "<br />";
+
+
+ //nomer2 grade nilai
+function kelas($nilai)
+ {
+ if ($nilai<=100 && $nilai>=85) {
+   $grade       = "A";
+ } elseif ($nilai<85 && $nilai>=70) {
+   $grade       = "B";
+ } elseif ($nilai<70 && $nilai>=56) {
+   $grade       = "C";
+ } elseif ($nilai<56 && $nilai>=36) {
+   $grade       = "D";
+ } elseif ($nilai<36 && $nilai>=0) {
+   $grade       = "E";
+ } else {
+   $grade       = "I";
+ }
+ return  $grade;
+}
+echo $grade;
+
+function predikat($grade){
+ switch ($grade) {
+   case "A":
+     $predikat = "<br />Sangat Memuaskan";
+     break;
+   case "B":
+     $predikat = "<br />Memuaskan";
+     break;
+   case "C":
+     $predikat = "<br />Cukup";
+     break;
+   case "D":
+     $predikat = "<br />Kurang";
+     break;
+   case "E":
+     $predikat = "<br />Sangat Kurang";
+     break;
+   default:
+     $predikat = "<br />Tidak Ada";
+     break;
+ }
+ return $predikat;
+}
+echo $predikat;
+?>
