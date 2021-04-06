@@ -1,0 +1,17 @@
+<h3>Sistem Penilaian</h3>
+<form method="POST" action="nilai_siswa.php">
+	<fieldset>
+		<legend>Form Nilai Siswa</legend>
+		Nama Lengkap : <input type="text" name="nama" placeholder="Nama Lengkap"><br />
+		Mata Kuliah : 
+		<select name="matkul">
+			<option>DDP</option>
+			<option>Web</option>
+			<option>Statistik</option>
+		</select><br/>
+		Nilai UTS : <input type="number" name="uts" placeholder="Nilai UTS"><br/>
+		Nilai UAS : <input type="number" name="uas" placeholder="Nilai UAS"><br/>
+		Nilai Tugas/Praktikum :<input type="number" name="tugas" placeholder="Nilai Tugas"><br/>
+		<input type="submit" name="proses" value="Kirim">
+	</fieldset>
+</form>
